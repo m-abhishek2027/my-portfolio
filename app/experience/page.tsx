@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Experience from "@/components/Experience/Experience";
-import heroData from "@/components/HeroBanner/hero.json";
+import { buildMetadata, siteConfig } from "@/lib/seo";
 
-const hero: { firstName: string; lastName: string } = heroData;
-
-export const metadata: Metadata = {
-  title: `Experience — ${hero.firstName} ${hero.lastName}`,
-};
+export const metadata: Metadata = buildMetadata({
+  title: "Experience",
+  description: `The work history and professional experience of ${siteConfig.name}, ${siteConfig.jobTitle}.`,
+  path: "/experience",
+});
 
 export default function ExperiencePage() {
   return (

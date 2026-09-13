@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import Skills from "@/components/Skills/Skills";
-import heroData from "@/components/HeroBanner/hero.json";
+import skillsData from "@/components/Skills/skills.json";
+import { buildMetadata } from "@/lib/seo";
 
-const hero: { firstName: string; lastName: string } = heroData;
+const skills: { subtitle: string } = skillsData;
 
-export const metadata: Metadata = {
-  title: `Skills — ${hero.firstName} ${hero.lastName}`,
-};
+export const metadata: Metadata = buildMetadata({
+  title: "Skills",
+  description: skills.subtitle,
+  path: "/skills",
+});
 
 export default function SkillsPage() {
   return (

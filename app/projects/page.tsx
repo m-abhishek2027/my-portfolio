@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Projects from "@/components/Projects/Projects";
-import heroData from "@/components/HeroBanner/hero.json";
+import { buildMetadata, siteConfig } from "@/lib/seo";
 
-const hero: { firstName: string; lastName: string } = heroData;
-
-export const metadata: Metadata = {
-  title: `Projects — ${hero.firstName} ${hero.lastName}`,
-};
+export const metadata: Metadata = buildMetadata({
+  title: "Projects",
+  description: `A selection of projects built by ${siteConfig.name} using Adobe Experience Manager, Java, Spring Boot and React.`,
+  path: "/projects",
+});
 
 export default function ProjectsPage() {
   return (

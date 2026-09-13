@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import About from "@/components/About/About";
-import heroData from "@/components/HeroBanner/hero.json";
+import aboutData from "@/components/About/about.json";
+import { buildMetadata } from "@/lib/seo";
 
-const hero: { firstName: string; lastName: string } = heroData;
+const about: { summary: string } = aboutData;
 
-export const metadata: Metadata = {
-  title: `About — ${hero.firstName} ${hero.lastName}`,
-};
+export const metadata: Metadata = buildMetadata({
+  title: "About",
+  description: about.summary,
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

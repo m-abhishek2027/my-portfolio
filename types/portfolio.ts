@@ -22,6 +22,5 @@ export interface GalleryImage extends ImageAsset {
 
 /** Site-wide images that aren't tied to a specific component (see `data/images.json`). */
 export interface ImagesData {
-  ogImage: ImageAsset;
   gallery: GalleryImage[];
 }

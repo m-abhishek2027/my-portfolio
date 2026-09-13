@@ -31,7 +31,16 @@ Content is stored as plain JSON, split two ways:
 
    | File          | Used for                                                   |
    | -------------- | ------------------------------------------------------------ |
-   | `images.json` | Site images (OG image, gallery) not owned by a component.  |
+   | `images.json` | Site images (gallery) not owned by a component.  |
+
+   The Open Graph/Twitter preview image is **not** a JSON field — it's
+   generated from code (`app/opengraph-image.tsx`, reused by
+   `app/twitter-image.tsx`) using the real `AM` logo mark, so it can't drift
+   out of sync with a manually-uploaded file. Same for the favicon/app icons
+   (`app/icon.tsx`, `app/apple-icon.tsx`). See [`lib/seo.ts`](../lib/seo.ts)
+   for the shared site name/description/keywords all of this (and every
+   page's `metadata` export) is built from — update hero.json/contact.json
+   and it flows through automatically.
 
 ## Adding images via Cloudinary
 

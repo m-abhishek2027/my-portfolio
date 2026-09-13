@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import Contact from "@/components/Contact/Contact";
-import heroData from "@/components/HeroBanner/hero.json";
+import contactData from "@/components/Contact/contact.json";
+import { buildMetadata } from "@/lib/seo";
 
-const hero: { firstName: string; lastName: string } = heroData;
+const contact: { description: string } = contactData;
 
-export const metadata: Metadata = {
-  title: `Contact — ${hero.firstName} ${hero.lastName}`,
-};
+export const metadata: Metadata = buildMetadata({
+  title: "Contact",
+  description: contact.description,
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
