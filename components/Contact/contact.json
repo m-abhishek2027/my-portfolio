@@ -1,0 +1,14 @@
+{
+  "eyebrow": "Get In Touch",
+  "title": "Contact Me",
+  "description": "Have a project in mind or just want to say hello? I'd love to hear from you.",
+  "email": "m.abhishek2027@gmail.com",
+  "phone": "+91 99816 00360",
+  "location": "India",
+  "formEndpoint": "",
+  "socials": [
+    { "platform": "LinkedIn", "url": "https://linkedin.com/in/abhishek2027", "icon": "linkedin" },
+    { "platform": "GitHub", "url": "https://github.com/m-abhishek2027", "icon": "github" },
+    { "platform": "Email", "url": "mailto:m.abhishek2027@gmail.com", "icon": "mail" }
+  ]
+}

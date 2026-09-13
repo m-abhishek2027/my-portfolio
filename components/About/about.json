@@ -1,0 +1,49 @@
+{
+  "eyebrow": "Get To Know Me",
+  "title": "About Me",
+  "summary": "AEM Developer specializing in Adobe Experience Manager and Java, focused on building scalable and high-performance digital experiences. I turn complex requirements into clean, maintainable, and reliable solutions.",
+  "fullBio": [
+    "I’m Abhishek Mishra, an AEM Developer specializing in Adobe Experience Manager, Java, and modern web technologies. I work on building scalable, maintainable digital experiences, with a strong focus on AEM components, Content Fragments, GraphQL, Sling Models, OSGi, and backend integrations.",
+    "My journey in technology started with a strong interest in software development and problem solving. Over time, I moved from building my first applications to working with enterprise technologies and Adobe Experience Manager. With every project, I’ve expanded my understanding of Java, AEM architecture, APIs, content management, and modern development practices while learning how to build solutions that are reliable, scalable, and easy to maintain.",
+    "What drives me is solving real-world engineering problems and turning complex requirements into clean, practical solutions. I enjoy exploring new technologies, improving application performance, and continuously finding better ways to build and deliver digital experiences. Outside of development, I like exploring technology, learning new concepts, and working on ideas that help me grow both technically and creatively."
+  ],
+  "highlights": [
+    { "label": "Years Experience", "value": "3+" },
+    { "label": "Projects Delivered", "value": "10+" },
+    { "label": "Technologies", "value": "15+" }
+  ],
+  "education": [
+      {
+      "id": "college-mca",
+      "institution": "Vindhya Institute Of Technology And Science",
+      "degree": "MCA — Computer Science",
+      "duration": "2022 — 2024",
+      "location": "Satna, Madhyapradesh",
+      "grade": "Honors",
+      "logo": { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1789335096/vits-logo_m7e2i5.png", "alt": "College logo" },
+      "url": "https://www.vitsdpr.ac.in/"
+    },
+        {
+      "id": "college-bca",
+      "institution": "Awadhesh Pratap Singh University",
+      "degree": "BCA — Computer Science",
+      "duration": "2019 — 2021",
+      "location": "Rewa, Madhyapradesh",
+      "grade": "7.5 CGPA",
+      "logo": { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1789331142/awadhesh-university-bg-remove_fe76ou.png", "alt": "College logo" },
+      "url": "https://www.apsurewa.ac.in/en/"
+    },
+    {
+      "id": "school-12",
+      "institution": "Government Higher Secondry School",
+      "degree": "Higher Secondary — Science",
+      "duration": "2017 — 2018",
+      "location": "Gurh Rewa, Madhyapradesh",
+      "grade": "Grade - A",
+      "logo": { "url": "", "alt": "School logo" },
+      "url": "https://share.google/9gVnRoh6ABkJ7ZHfM"
+    }
+
+  ],
+  "viewMoreHref": "/about"
+}

@@ -1,0 +1,14 @@
+{
+  "ogImage": {
+    "url": "",
+    "alt": "Abhishek Mishra — Portfolio"
+  },
+  "gallery": [
+    {
+      "id": "sample-image",
+      "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1789321376/banner_spbehh.jpg",
+      "alt": "Describe this image",
+      "category": "misc"
+    }
+  ]
+}

@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Metallic black + gold — fixed brand theme (not user light/dark preference). */
+  --background: #08080a;
+  --surface: #131316;
+  --surface-elevated: #1c1c20;
+  --foreground: #f4f1ea;
+  --muted: #a3a09a;
+
+  --gold: #d4af37;
+  --gold-light: #f5d576;
+  --gold-dark: #9c7a24;
+
+  --border-subtle: rgba(212, 175, 55, 0.16);
+
+  /* Fixed navbar height — shared by the Navbar, scroll offset and hero
+     spacing. Matches the floating pill wrapper's real height exactly:
+     0.75rem top pad + 4rem (h-16) pill + 0.75rem bottom pad = 5.5rem. */
+  --nav-height: 5.5rem;
+  /* Alias for --nav-height — kept as its own variable (rather than used
+     directly) so anything that needs to clear the fixed header can say so
+     without caring whether the header is just the pill or, later, the pill
+     plus something above it again. */
+  --header-height: var(--nav-height);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+
+  --color-border-subtle: var(--border-subtle);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  /* Keeps the fixed navbar from covering a section's top when jumping to an anchor. */
+  scroll-padding-top: var(--header-height);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Staggered entrance for each mobile-menu link — ported from the floating
+   pill-nav reference (eduadobe-ui), recolored to this site's own theme. */
+@keyframes menu-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-item-in {
+  animation: menu-item-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Gentle ambient float for the featured skill logos (HeroBanner-adjacent
+   "AEM / Spring Boot / React" cards) — a small continuous life/motion cue.
+   Disabled for reduced-motion via the .motion-reduce:animate-none utility
+   applied alongside this class, same as everywhere else in this project. */
+@keyframes skill-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-skill-float {
+  animation: skill-float 4.5s ease-in-out infinite;
+}
+
+/* Skill logo card/chip hover treatment (Skills.tsx). Each skill's real
+   brand color (or gold, for a conceptual icon with no logo of its own)
+   only exists at render time from skills.json — Tailwind can't generate a
+   utility class for a color it doesn't know about at build time — so each
+   element sets --tint inline and these plain CSS rules do the rest via
+   color-mix(), same idea as the rest of the site's gold hover accents. */
+.skill-card {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--tint) 45%, transparent);
+  box-shadow: 0 20px 45px -20px color-mix(in srgb, var(--tint) 65%, transparent);
+}
+
+.skill-chip {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.skill-chip:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--tint) 55%, transparent);
+  background-color: color-mix(in srgb, var(--tint) 12%, transparent);
+  box-shadow: 0 12px 24px -16px color-mix(in srgb, var(--tint) 70%, transparent);
+}
+
+/* Gold "sheen" text — used for headings and the logo wordmark accents. */
+.text-gradient-gold {
+  background-image: linear-gradient(
+    90deg,
+    var(--gold-dark),
+    var(--gold-light) 50%,
+    var(--gold-dark)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }

@@ -1,0 +1,145 @@
+{
+  "eyebrow": "What I Do",
+  "title": "My Skills",
+  "subtitle": "A full breakdown of the languages, AEM technologies and tools I build with.",
+  "viewMoreHref": "/skills",
+  "featured": [
+    {
+      "name": "Adobe Experience Manager",
+      "shortName": "AEM",
+      "icon": "adobe",
+      "tagline": "Enterprise CMS & DAM"
+    },
+    {
+      "name": "Spring Boot",
+      "shortName": "Spring Boot",
+      "icon": "springboot",
+      "tagline": "Java microservices"
+    },
+    {
+      "name": "React.js",
+      "shortName": "React",
+      "icon": "react",
+      "tagline": "Modern web UI"
+    }
+  ],
+  "categories": [
+    {
+      "name": "AEM Assets / DAM",
+      "icon": "boxes",
+      "skills": [
+        { "name": "Digital Asset Management (DAM)", "icon": "folder-tree" },
+        { "name": "Dynamic Media", "icon": "dynamic-media" },
+        { "name": "Metadata Schema Editor", "icon": "schema" },
+        { "name": "Asset Microservices (Asset Compute)", "icon": "microservices" },
+        { "name": "Smart Tags", "icon": "tag" },
+        { "name": "Asset Renditions", "icon": "layers" },
+        { "name": "Bulk Asset Migration", "icon": "migrate" },
+        { "name": "Digital Asset Governance", "icon": "governance" },
+        { "name": "Assets HTTP API", "icon": "api" }
+      ]
+    },
+    {
+      "name": "AEM Technologies",
+      "icon": "adobe",
+      "skills": [
+        { "name": "AEM 6.5", "icon": "adobe" },
+        { "name": "AEM as a Cloud Service (AEMaaCS)", "icon": "cloud" },
+        { "name": "Multi Site Manager (MSM)", "icon": "sites" },
+        { "name": "Experience Fragments", "icon": "puzzle" },
+        { "name": "Content Fragments", "icon": "stack" },
+        { "name": "Editable Templates", "icon": "template" },
+        { "name": "Touch UI", "icon": "touch" }
+      ]
+    },
+    {
+      "name": "AEM Backend",
+      "icon": "server",
+      "skills": [
+        { "name": "OSGi Services", "icon": "server" },
+        { "name": "Sling Models", "icon": "component" },
+        { "name": "Sling Servlets", "icon": "server" },
+        { "name": "JCR APIs", "icon": "database" },
+        { "name": "Query Builder", "icon": "search" },
+        { "name": "GraphQL", "icon": "graphql" },
+        { "name": "Workflows", "icon": "workflow" },
+        { "name": "Event Listeners", "icon": "bell" },
+        { "name": "Scheduler Jobs", "icon": "clock" },
+        { "name": "Resource Resolver", "icon": "waypoints" },
+        { "name": "Replication APIs", "icon": "refresh" }
+      ]
+    },
+    {
+      "name": "Backend",
+      "icon": "cpu",
+      "skills": [
+        { "name": "Java", "icon": "java" },
+        { "name": "Spring Boot", "icon": "springboot" },
+        { "name": "Spring MVC", "icon": "spring" },
+        { "name": "JDBC", "icon": "database" },
+        { "name": "Servlets", "icon": "server" },
+        { "name": "RESTful APIs", "icon": "api" }
+      ]
+    },
+    {
+      "name": "Frontend",
+      "icon": "code",
+      "skills": [
+        { "name": "HTML5", "icon": "html5" },
+        { "name": "CSS3", "icon": "css3" },
+        { "name": "JavaScript (ES6+)", "icon": "javascript" },
+        { "name": "jQuery", "icon": "jquery" },
+        { "name": "Bootstrap", "icon": "bootstrap" },
+        { "name": "HTL (Sightly)", "icon": "code" },
+        { "name": "ReactJS", "icon": "react" }
+      ]
+    },
+    {
+      "name": "Repository & Frameworks",
+      "icon": "git-branch",
+      "skills": [
+        { "name": "Apache Sling", "icon": "apache" },
+        { "name": "Jackrabbit", "icon": "apache" },
+        { "name": "JCR 2.0", "icon": "database" },
+        { "name": "Apache Felix", "icon": "apache" },
+        { "name": "OSGi Framework", "icon": "blocks" }
+      ]
+    },
+    {
+      "name": "Databases",
+      "icon": "database",
+      "skills": [
+        { "name": "SQL", "icon": "database" },
+        { "name": "PL/SQL", "icon": "database" },
+        { "name": "MySQL", "icon": "mysql" }
+      ]
+    },
+    {
+      "name": "Build Tools",
+      "icon": "wrench",
+      "skills": [
+        { "name": "Maven", "icon": "maven" },
+        { "name": "Jenkins", "icon": "jenkins" },
+        { "name": "Cloud Manager", "icon": "adobe" }
+      ]
+    },
+    {
+      "name": "Version Control",
+      "icon": "git-merge",
+      "skills": [
+        { "name": "Git", "icon": "git" },
+        { "name": "GitHub", "icon": "github" }
+      ]
+    },
+    {
+      "name": "Tools",
+      "icon": "terminal",
+      "skills": [
+        { "name": "CRXDE Lite", "icon": "adobe" },
+        { "name": "Eclipse", "icon": "eclipse" },
+        { "name": "IntelliJ IDEA", "icon": "intellij" },
+        { "name": "Jira", "icon": "jira" }
+      ]
+    }
+  ]
+}

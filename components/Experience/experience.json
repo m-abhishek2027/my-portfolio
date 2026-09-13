@@ -1,0 +1,15 @@
+{
+  "eyebrow": "My Journey",
+  "title": "Work Experience",
+  "viewMoreHref": "/experience",
+  "items": [
+    {
+      "id": "role-1",
+      "role": "Add your job title",
+      "company": "Company name",
+      "duration": "2023 — Present",
+      "description": "Brief description of your responsibilities and key achievements in this role.",
+      "current": true
+    }
+  ]
+}

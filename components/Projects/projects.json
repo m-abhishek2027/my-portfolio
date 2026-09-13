@@ -1,0 +1,17 @@
+{
+  "eyebrow": "My Work",
+  "title": "Featured Projects",
+  "viewMoreHref": "/projects",
+  "items": [
+    {
+      "id": "sample-project",
+      "title": "Add your project title",
+      "description": "One or two sentences describing what this project does and the problem it solves.",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
+      "image": "",
+      "liveUrl": "",
+      "githubUrl": "",
+      "featured": true
+    }
+  ]
+}

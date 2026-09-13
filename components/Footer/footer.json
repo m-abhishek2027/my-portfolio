@@ -1,0 +1,23 @@
+{
+  "logoImage": "/logo.png",
+  "copyrightName": "Abhishek Mishra",
+  "tagline": "Building scalable digital experiences with Adobe Experience Manager, Java and modern web technologies.",
+  "quickLinks": [
+    { "label": "Home", "href": "#home" },
+    { "label": "About", "href": "#about" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Projects", "href": "#projects" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "contact": {
+    "email": "m.abhishek2027@gmail.com",
+    "phone": "+91 99816 00360",
+    "location": "India"
+  },
+  "socials": [
+    { "platform": "LinkedIn", "url": "https://linkedin.com/in/abhishek2027", "icon": "linkedin" },
+    { "platform": "GitHub", "url": "https://github.com/m-abhishek2027", "icon": "github" },
+    { "platform": "Email", "url": "mailto:m.abhishek2027@gmail.com", "icon": "mail" }
+  ]
+}
