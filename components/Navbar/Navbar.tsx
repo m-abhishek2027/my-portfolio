@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import MobileMenu from "./MobileMenu";
 import navbarData from "./navbar.json";
@@ -38,8 +39,12 @@ const { links, resumeButton }: NavbarJson = navbarData;
 export default function Navbar() {
   const [navHidden, setNavHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeId, setActiveId] = useState(links[0]?.id ?? "");
   const lastScrollY = useRef(0);
+
+  // Each nav item now opens its own dedicated page (see navbar.json), so
+  // the active link just follows the current route — no more scroll-spy.
+  const pathname = usePathname();
+  const activeId = links.find((link) => link.href === pathname)?.id ?? "";
 
   // Slide the pill away on scroll-down, back in on scroll-up, so it doesn't
   // eat screen space while reading. Always visible near the top, and never
@@ -67,30 +72,6 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [mobileOpen]);
-
-  // Highlights the nav link for whichever section is in view. Sections that
-  // don't exist on the page yet are simply skipped, so this enhances itself
-  // automatically as each section gets built out.
-  useEffect(() => {
-    const sections = links
-      .map((link) => document.getElementById(link.id))
-      .filter((el): el is HTMLElement => Boolean(el));
-
-    if (sections.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const mostVisible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (mostVisible?.target.id) setActiveId(mostVisible.target.id);
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, []);
 
   // Lock body scroll while the mobile menu is open.
   useEffect(() => {
