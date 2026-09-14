@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
@@ -37,41 +37,12 @@ const { links, resumeButton }: NavbarJson = navbarData;
 // underline) but kept to this site's own layout (logo left / links centered
 // / resume right) and its metallic-black + gold theme.
 export default function Navbar() {
-  const [navHidden, setNavHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const lastScrollY = useRef(0);
 
   // Each nav item now opens its own dedicated page (see navbar.json), so
   // the active link just follows the current route — no more scroll-spy.
   const pathname = usePathname();
   const activeId = links.find((link) => link.href === pathname)?.id ?? "";
-
-  // Slide the pill away on scroll-down, back in on scroll-up, so it doesn't
-  // eat screen space while reading. Always visible near the top, and never
-  // hides while the mobile menu is open.
-  useEffect(() => {
-    lastScrollY.current = window.scrollY;
-
-    const onScroll = () => {
-      const currentY = window.scrollY;
-
-      if (!mobileOpen) {
-        const delta = currentY - lastScrollY.current;
-        if (currentY < 120) {
-          setNavHidden(false);
-        } else if (delta > 4) {
-          setNavHidden(true);
-        } else if (delta < -4) {
-          setNavHidden(false);
-        }
-      }
-
-      lastScrollY.current = currentY;
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [mobileOpen]);
 
   // Lock body scroll while the mobile menu is open.
   useEffect(() => {
@@ -92,11 +63,7 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-transform duration-300 motion-reduce:transition-none ${
-        navHidden && !mobileOpen ? "translate-y-[-100%]" : "translate-y-0"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50">
       {/* max-w-7xl + px-4 sm:px-6 combined on this one element (not split
           across two nested divs) — has to match HeroBanner's wrapper
           exactly, including WHERE the padding is applied relative to the

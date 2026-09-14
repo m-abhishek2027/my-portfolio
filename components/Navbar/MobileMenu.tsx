@@ -45,10 +45,16 @@ export default function MobileMenu({
         // --header-height left a visible ~12px gap below the pill's own
         // bottom edge; subtracting that trailing pb-3 lines this up flush
         // with the pill itself instead of the invisible box around it.
+        // No translate-y in this transition on purpose — only opacity/scale
+        // (scale anchored at origin-top, so the top edge never moves).
+        // top itself is a plain fixed value, never animated, so the menu's
+        // starting position can't drift with the pill's own hide/show
+        // transition — see Navbar.tsx (the auto-hide-on-scroll behavior
+        // this used to need to coordinate with has since been removed).
         className={`fixed inset-x-4 top-[calc(var(--header-height)_-_0.75rem)] z-40 origin-top transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:hidden ${
           open
-            ? "translate-y-0 scale-100 opacity-100"
-            : "pointer-events-none -translate-y-3 scale-[0.98] opacity-0"
+            ? "scale-100 opacity-100"
+            : "pointer-events-none scale-[0.98] opacity-0"
         }`}
       >
         <div className="max-h-[calc(100vh-8rem)] overflow-y-auto rounded-[28px] border border-border-subtle bg-gradient-to-br from-surface-elevated/95 to-background/95 p-6 shadow-2xl backdrop-blur-xl">
