@@ -14,7 +14,7 @@ const { logo }: { logo: LogoJson } = navbarData;
 export default function Logo() {
   return (
     <Link
-      href="#home"
+      href="/"
       aria-label={`${logo.name} — Home`}
       className="group flex items-center gap-3"
     >

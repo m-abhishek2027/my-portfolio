@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRightIcon, GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
+import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
+import BackToTopButton from "./BackToTopButton";
 import footerData from "./footer.json";
 
 type FooterIconKey = "linkedin" | "github" | "mail";
@@ -40,7 +41,7 @@ export default function Footer() {
     <footer className="border-t border-border-subtle bg-surface px-4 pb-8 pt-16 lg:px-10">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-10 sm:gap-10 lg:grid-cols-4">
         <div className="col-span-2">
-          <Link href="#home" className="inline-flex items-center gap-3">
+          <Link href="/" className="inline-flex items-center gap-3">
             {footer.logoImage && (
               <Image
                 src={footer.logoImage}
@@ -112,10 +113,7 @@ export default function Footer() {
         <p>
           © {year} {footer.copyrightName}. All rights reserved.
         </p>
-        <Link href="#home" className="inline-flex items-center gap-1.5 transition-colors hover:text-gold">
-          Back to top
-          <ArrowRightIcon className="h-3.5 w-3.5 -rotate-90" />
-        </Link>
+        <BackToTopButton />
       </div>
     </footer>
   );
