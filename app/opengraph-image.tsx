@@ -15,14 +15,17 @@ export const contentType = "image/png";
 const fontData = readFile(
   join(process.cwd(), "assets/fonts/PlayfairDisplay-ExtraBold.woff")
 );
-
-const initials = siteConfig.name
-  .split(" ")
-  .map((part) => part[0])
-  .join("");
+// The real "AM" logo mark (see public/logo.png), pre-trimmed and downsized
+// to keep ImageResponse's ~500KB bundle budget — a full-size copy would
+// blow past it. public/logo.png itself now has a real alpha channel (a
+// background-removal pass fixed a baked-in checkerboard that used to be
+// there — see git history if you're wondering why this comment exists).
+const logoData = readFile(join(process.cwd(), "assets/logo-mark.png")).then(
+  (buffer) => `data:image/png;base64,${buffer.toString("base64")}`
+);
 
 export default async function Image() {
-  const playfair = await fontData;
+  const [playfair, logoSrc] = await Promise.all([fontData, logoData]);
 
   return new ImageResponse(
     (
@@ -66,32 +69,8 @@ export default async function Image() {
           }}
         />
 
-        {/* "AM" monogram badge — same mark as the navbar's own fallback
-            (components/Navbar/Logo.tsx), drawn rather than embedding
-            public/logo.png: that file has no real alpha channel (its
-            checkered look is baked-in pixels, not transparency — it only
-            reads fine at the small size the navbar shows it at), so it
-            would show a visible gray square at this card's larger size. */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: 120,
-            height: 120,
-            borderRadius: 28,
-            border: "3px solid rgba(212,175,55,0.55)",
-            backgroundColor: "rgba(212,175,55,0.08)",
-            marginBottom: 32,
-            fontFamily: "Playfair Display",
-            fontWeight: 800,
-            fontSize: 48,
-            letterSpacing: 1,
-            color: "#d4af37",
-          }}
-        >
-          {initials}
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse renders its own <img>, not next/image. */}
+        <img src={logoSrc} width={220} height={131} alt="" style={{ marginBottom: 24 }} />
 
         <div
           style={{

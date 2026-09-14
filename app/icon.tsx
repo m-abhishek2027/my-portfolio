@@ -1,20 +1,20 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { siteConfig } from "@/lib/seo";
 
-// Browser tab favicon — a drawn "AM" monogram (same mark as the navbar's
-// own fallback, components/Navbar/Logo.tsx) rather than embedding
-// public/logo.png: that file has no real alpha channel — its checkered
-// look is baked-in pixels, not transparency — so it only reads cleanly at
-// the small size the navbar shows it at, not blown up into an icon.
+// Browser tab favicon — generated from the real "AM" logo mark (see
+// public/logo.png; assets/logo-mark.png is a trimmed, downsized copy kept
+// small enough for ImageResponse's bundle budget).
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
-const initials = siteConfig.name
-  .split(" ")
-  .map((part) => part[0])
-  .join("");
+const logoData = readFile(join(process.cwd(), "assets/logo-mark.png")).then(
+  (buffer) => `data:image/png;base64,${buffer.toString("base64")}`
+);
 
-export default function Icon() {
+export default async function Icon() {
+  const logoSrc = await logoData;
+
   return new ImageResponse(
     (
       <div
@@ -26,12 +26,10 @@ export default function Icon() {
           justifyContent: "center",
           background: "#08080a",
           borderRadius: 7,
-          color: "#d4af37",
-          fontSize: 16,
-          fontWeight: 700,
         }}
       >
-        {initials}
+        {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse renders its own <img>, not next/image. */}
+        <img src={logoSrc} width={26} height={16} alt="" />
       </div>
     ),
     { ...size }

@@ -1,18 +1,18 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { siteConfig } from "@/lib/seo";
 
-// iOS home-screen icon — see icon.tsx for why this is a drawn monogram
-// rather than public/logo.png. Same mark, larger, no border-radius (iOS
-// applies its own mask/corner rounding on top).
+// iOS home-screen icon — see icon.tsx for where this mark comes from.
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-const initials = siteConfig.name
-  .split(" ")
-  .map((part) => part[0])
-  .join("");
+const logoData = readFile(join(process.cwd(), "assets/logo-mark.png")).then(
+  (buffer) => `data:image/png;base64,${buffer.toString("base64")}`
+);
 
-export default function AppleIcon() {
+export default async function AppleIcon() {
+  const logoSrc = await logoData;
+
   return new ImageResponse(
     (
       <div
@@ -23,12 +23,10 @@ export default function AppleIcon() {
           alignItems: "center",
           justifyContent: "center",
           background: "#08080a",
-          color: "#d4af37",
-          fontSize: 84,
-          fontWeight: 700,
         }}
       >
-        {initials}
+        {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse renders its own <img>, not next/image. */}
+        <img src={logoSrc} width={130} height={77} alt="" />
       </div>
     ),
     { ...size }
