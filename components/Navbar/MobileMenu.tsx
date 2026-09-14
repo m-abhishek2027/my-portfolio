@@ -38,7 +38,14 @@ export default function MobileMenu({
       <div
         id="mobile-menu"
         aria-hidden={!open}
-        className={`fixed inset-x-4 top-[var(--header-height)] z-40 origin-top transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:hidden ${
+        // --header-height (5.5rem) is the whole fixed <header>'s box, which
+        // is taller than the pill actually looks: the header adds its own
+        // pt-3 above the pill AND pb-3 below it (see Navbar.tsx's wrapper)
+        // so the total adds up to --nav-height. Starting this exactly at
+        // --header-height left a visible ~12px gap below the pill's own
+        // bottom edge; subtracting that trailing pb-3 lines this up flush
+        // with the pill itself instead of the invisible box around it.
+        className={`fixed inset-x-4 top-[calc(var(--header-height)_-_0.75rem)] z-40 origin-top transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:hidden ${
           open
             ? "translate-y-0 scale-100 opacity-100"
             : "pointer-events-none -translate-y-3 scale-[0.98] opacity-0"
