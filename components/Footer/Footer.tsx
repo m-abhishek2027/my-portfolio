@@ -38,8 +38,8 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-border-subtle bg-surface px-4 pb-8 pt-16 lg:px-10">
-      <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="sm:col-span-2 lg:col-span-2">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-x-6 gap-y-10 sm:gap-10 lg:grid-cols-4">
+        <div className="col-span-2">
           <Link href="#home" className="inline-flex items-center gap-3">
             {footer.logoImage && (
               <Image
@@ -57,7 +57,7 @@ export default function Footer() {
           <p className="mt-4 max-w-sm text-sm text-muted">{footer.tagline}</p>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             Quick Links
           </h3>
@@ -75,11 +75,15 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">
             Get In Touch
           </h3>
-          <ul className="mt-4 flex flex-col gap-2 text-sm text-foreground/80">
+          {/* min-w-0 above + break-words here: grid items default to a
+              min-width that fits their content unbroken, which let the long
+              email address overflow past this now-narrower (2-per-row on
+              mobile) column instead of wrapping. */}
+          <ul className="mt-4 flex flex-col gap-2 break-words text-sm text-foreground/80">
             <li>{footer.contact.email}</li>
             <li>{footer.contact.phone}</li>
             <li>{footer.contact.location}</li>
