@@ -36,7 +36,11 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
   const items = isPreview ? projectsJson.items.slice(0, PREVIEW_LIMIT) : projectsJson.items;
 
   return (
-    <section id="projects" className="border-t border-border-subtle py-20 lg:py-28">
+    <section
+      id="projects"
+      // See About.tsx for why the top border is preview-only.
+      className={`py-20 lg:py-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
+    >
       {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
           <section>'s own padding) so it renders exactly as wide as the
           navbar's own wrapper (see Navbar.tsx) at every viewport width. */}

@@ -28,12 +28,20 @@ const socialIcons: Record<ContactIconKey, typeof LinkedInIcon> = {
   mail: MailIcon,
 };
 
-// No preview/full variant here (unlike About/Skills/Projects/Experience) —
-// contact info is already short, so the Home section and the dedicated
-// /contact page show exactly the same thing.
-export default function Contact() {
+interface ContactProps {
+  /** True only on the dedicated /contact page — see About.tsx for why the
+   *  top border is skipped there (it's otherwise identical everywhere;
+   *  unlike About/Skills/Projects/Experience there's no separate preview
+   *  vs. full content, so this is the only thing this prop controls). */
+  standalone?: boolean;
+}
+
+export default function Contact({ standalone = false }: ContactProps) {
   return (
-    <section id="contact" className="border-t border-border-subtle py-20 lg:py-28">
+    <section
+      id="contact"
+      className={`py-20 lg:py-28 ${standalone ? "" : "border-t border-border-subtle"}`}
+    >
       {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
           <section>'s own padding) so it renders exactly as wide as the
           navbar's own wrapper (see Navbar.tsx) at every viewport width. */}

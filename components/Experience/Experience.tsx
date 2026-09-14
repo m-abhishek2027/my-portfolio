@@ -34,7 +34,11 @@ export default function Experience({ variant = "full" }: ExperienceProps) {
     : experienceJson.items;
 
   return (
-    <section id="experience" className="border-t border-border-subtle py-20 lg:py-28">
+    <section
+      id="experience"
+      // See About.tsx for why the top border is preview-only.
+      className={`py-20 lg:py-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
+    >
       {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
           <section>'s own padding) so it renders exactly as wide as the
           navbar's own wrapper (see Navbar.tsx) at every viewport width. */}

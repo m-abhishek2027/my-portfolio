@@ -46,7 +46,14 @@ export default function About({ variant = "full" }: AboutProps) {
   const isPreview = variant === "preview";
 
   return (
-    <section id="about" className="border-t border-border-subtle py-20 lg:py-28">
+    <section
+      id="about"
+      // The top border only makes sense between stacked sections on the
+      // Home page (isPreview) — on the dedicated page this is the first
+      // thing under the navbar, so a border there just reads as a stray
+      // line right under the pill.
+      className={`py-20 lg:py-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
+    >
       {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
           <section>'s own padding) so it renders exactly as wide as the
           navbar's own wrapper (see Navbar.tsx) at every viewport width. */}
