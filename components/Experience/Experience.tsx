@@ -34,11 +34,11 @@ export default function Experience({ variant = "full" }: ExperienceProps) {
     : experienceJson.items;
 
   return (
-    <section
-      id="experience"
-      className="border-t border-border-subtle px-4 py-20 lg:px-10 lg:py-28"
-    >
-      <div className="mx-auto max-w-3xl text-center">
+    <section id="experience" className="border-t border-border-subtle py-20 lg:py-28">
+      {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
+          <section>'s own padding) so it renders exactly as wide as the
+          navbar's own wrapper (see Navbar.tsx) at every viewport width. */}
+      <div className="mx-auto max-w-7xl px-4 text-center lg:px-10">
         <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gold">
           {experienceJson.eyebrow}
         </span>
@@ -46,7 +46,7 @@ export default function Experience({ variant = "full" }: ExperienceProps) {
           {experienceJson.title}
         </h2>
 
-        <div className="mt-10 flex flex-col gap-6 text-left">
+        <div className="mx-auto mt-10 flex max-w-3xl flex-col gap-6 text-left">
           {items.map((item) => (
             <div key={item.id} className="rounded-2xl border border-border-subtle bg-surface p-6">
               <div className="flex flex-wrap items-baseline justify-between gap-2">

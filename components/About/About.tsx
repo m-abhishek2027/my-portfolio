@@ -46,21 +46,21 @@ export default function About({ variant = "full" }: AboutProps) {
   const isPreview = variant === "preview";
 
   return (
-    <section
-      id="about"
-      className="border-t border-border-subtle px-4 py-20 lg:px-10 lg:py-28"
-    >
-      <div className="mx-auto max-w-3xl text-center">
+    <section id="about" className="border-t border-border-subtle py-20 lg:py-28">
+      {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
+          <section>'s own padding) so it renders exactly as wide as the
+          navbar's own wrapper (see Navbar.tsx) at every viewport width. */}
+      <div className="mx-auto max-w-7xl px-4 text-center lg:px-10">
         <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gold">
           {about.eyebrow}
         </span>
         <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
           {about.title}
         </h2>
-        <p className="mt-6 text-muted">{about.summary}</p>
+        <p className="mx-auto mt-6 max-w-2xl text-muted">{about.summary}</p>
       </div>
 
-      <div className="mx-auto mt-10 max-w-4xl">
+      <div className="mx-auto mt-10 max-w-7xl px-4 lg:px-10">
         {!isPreview && (
           <div className="mx-auto max-w-3xl text-left">
             {about.fullBio.map((paragraph, idx) => (

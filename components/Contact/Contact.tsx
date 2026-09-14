@@ -33,18 +33,18 @@ const socialIcons: Record<ContactIconKey, typeof LinkedInIcon> = {
 // /contact page show exactly the same thing.
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="border-t border-border-subtle px-4 py-20 lg:px-10 lg:py-28"
-    >
-      <div className="mx-auto max-w-2xl text-center">
+    <section id="contact" className="border-t border-border-subtle py-20 lg:py-28">
+      {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
+          <section>'s own padding) so it renders exactly as wide as the
+          navbar's own wrapper (see Navbar.tsx) at every viewport width. */}
+      <div className="mx-auto max-w-7xl px-4 text-center lg:px-10">
         <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gold">
           {contact.eyebrow}
         </span>
         <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
           {contact.title}
         </h2>
-        <p className="mt-6 text-muted">{contact.description}</p>
+        <p className="mx-auto mt-6 max-w-xl text-muted">{contact.description}</p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a

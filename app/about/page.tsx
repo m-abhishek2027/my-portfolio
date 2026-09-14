@@ -19,7 +19,7 @@ export default function AboutPage() {
           dedicated page that stacks on top of the fixed-header clearance
           above, so pull it up a bit here instead of touching the shared
           component's spacing. */}
-      <div className="-mt-10 lg:-mt-14">
+      <div className="-mt-16 lg:-mt-24">
         <About variant="full" />
       </div>
     </main>

@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <main className="flex-1 pt-[var(--header-height)]">
       {/* See app/about/page.tsx for why this negative margin is here. */}
-      <div className="-mt-10 lg:-mt-14">
+      <div className="-mt-16 lg:-mt-24">
         <Contact />
       </div>
     </main>

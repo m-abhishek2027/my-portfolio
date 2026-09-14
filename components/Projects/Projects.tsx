@@ -36,11 +36,11 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
   const items = isPreview ? projectsJson.items.slice(0, PREVIEW_LIMIT) : projectsJson.items;
 
   return (
-    <section
-      id="projects"
-      className="border-t border-border-subtle px-4 py-20 lg:px-10 lg:py-28"
-    >
-      <div className="mx-auto max-w-6xl text-center">
+    <section id="projects" className="border-t border-border-subtle py-20 lg:py-28">
+      {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
+          <section>'s own padding) so it renders exactly as wide as the
+          navbar's own wrapper (see Navbar.tsx) at every viewport width. */}
+      <div className="mx-auto max-w-7xl px-4 text-center lg:px-10">
         <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gold">
           {projectsJson.eyebrow}
         </span>
