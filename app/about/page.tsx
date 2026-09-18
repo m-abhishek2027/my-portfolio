@@ -13,15 +13,13 @@ export const metadata: Metadata = buildMetadata({
 
 export default function AboutPage() {
   return (
-    <main className="flex-1 pt-[var(--header-height)]">
-      {/* The section itself already carries generous py-20/lg:py-28 (meant
-          as breathing room between sections on the Home page) — on its own
-          dedicated page that stacks on top of the fixed-header clearance
-          above, so pull it up a bit here instead of touching the shared
-          component's spacing. */}
-      <div className="-mt-16 lg:-mt-24">
-        <About variant="full" />
-      </div>
+    // No header clearance here on purpose — same reasoning as HeroBanner:
+    // the navbar defaults to a small floating icon rather than a full-width
+    // bar, so every dedicated page can safely start from the very top of
+    // the viewport instead of reserving space for a header that usually
+    // isn't there. The section's own py-20/lg:py-28 is the only spacing.
+    <main className="flex-1">
+      <About variant="full" />
     </main>
   );
 }

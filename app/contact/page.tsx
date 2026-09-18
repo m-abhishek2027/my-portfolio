@@ -13,11 +13,9 @@ export const metadata: Metadata = buildMetadata({
 
 export default function ContactPage() {
   return (
-    <main className="flex-1 pt-[var(--header-height)]">
-      {/* See app/about/page.tsx for why this negative margin is here. */}
-      <div className="-mt-16 lg:-mt-24">
-        <Contact standalone />
-      </div>
+    // See app/about/page.tsx for why there's no header clearance here.
+    <main className="flex-1">
+      <Contact standalone />
     </main>
   );
 }
