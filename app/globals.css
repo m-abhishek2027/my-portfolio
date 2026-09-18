@@ -97,10 +97,29 @@ body {
    element sets --tint inline and these plain CSS rules do the rest via
    color-mix(), same idea as the rest of the site's gold hover accents. */
 .skill-card {
+  position: relative;
+  overflow: hidden;
   transition:
     transform 0.3s ease,
     border-color 0.3s ease,
     box-shadow 0.3s ease;
+}
+/* Faint tint-colored HUD grid texture behind the icon/text — same
+   repeating-diagonal-line idea as ProjectImagePlaceholder, just driven by
+   each card's own --tint instead of a fixed gold. Painted before (behind)
+   the card's real, non-positioned content automatically. */
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--tint) 9%, transparent) 0px,
+    color-mix(in srgb, var(--tint) 9%, transparent) 1px,
+    transparent 1px,
+    transparent 22px
+  );
+  pointer-events: none;
 }
 .skill-card:hover {
   transform: translateY(-4px);
@@ -120,6 +139,35 @@ body {
   border-color: color-mix(in srgb, var(--tint) 55%, transparent);
   background-color: color-mix(in srgb, var(--tint) 12%, transparent);
   box-shadow: 0 12px 24px -16px color-mix(in srgb, var(--tint) 70%, transparent);
+}
+
+/* Category panel (Skills.tsx full view) — a thin tint-colored accent line
+   across the top plus a gentle hover lift, so each category reads as its
+   own "console panel" instead of a plain bordered box. */
+.skill-category {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.skill-category::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--tint) 70%, transparent),
+    transparent
+  );
+}
+.skill-category:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--tint) 35%, transparent);
+  box-shadow: 0 25px 50px -30px color-mix(in srgb, var(--tint) 55%, transparent);
 }
 
 /* Gold "sheen" text — used for headings and the logo wordmark accents. */

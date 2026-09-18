@@ -76,12 +76,20 @@ export default function Skills({ variant = "full" }: SkillsProps) {
     <section
       id="skills"
       // See About.tsx for why the top border is preview-only.
-      className={`py-20 lg:py-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
+      className={`relative overflow-hidden py-20 lg:py-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
     >
+      {/* Ambient background glow — purely decorative, sits behind
+          everything (the content wrapper below is `relative` so it still
+          paints on top despite coming after this in DOM order). */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 opacity-70">
+        <div className="absolute left-[10%] top-0 h-72 w-72 -translate-y-1/3 rounded-full bg-gold/10 blur-3xl" />
+        <div className="absolute right-[10%] bottom-0 h-72 w-72 translate-y-1/3 rounded-full bg-gold-dark/10 blur-3xl" />
+      </div>
+
       {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
           <section>'s own padding) so it renders exactly as wide as the
           navbar's own wrapper (see Navbar.tsx) at every viewport width. */}
-      <div className="mx-auto max-w-7xl px-4 text-center lg:px-10">
+      <div className="relative mx-auto max-w-7xl px-4 text-center lg:px-10">
         <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gold">
           {skills.eyebrow}
         </span>
@@ -105,24 +113,51 @@ export default function Skills({ variant = "full" }: SkillsProps) {
             return (
               <SkillReveal key={item.name} delayMs={idx * 100}>
                 <div
-                  className="skill-card group flex items-center gap-3 rounded-2xl border border-border-subtle bg-surface/60 p-4 text-left"
+                  className="skill-card group flex items-center gap-4 rounded-2xl border border-border-subtle bg-surface/60 p-5 text-left"
                   style={{ "--tint": tint } as TintStyle}
                 >
+                  {/* HUD corner brackets — same framing motif as the
+                      Projects section's placeholder art, tinted to this
+                      skill's own brand color instead of gold. */}
+                  <span
+                    aria-hidden
+                    className="absolute left-3 top-3 h-3 w-3 border-l-2 border-t-2"
+                    style={{ borderColor: hexToRgba(tint, 0.5) }}
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute right-3 top-3 h-3 w-3 border-r-2 border-t-2"
+                    style={{ borderColor: hexToRgba(tint, 0.5) }}
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute bottom-3 left-3 h-3 w-3 border-b-2 border-l-2"
+                    style={{ borderColor: hexToRgba(tint, 0.5) }}
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute bottom-3 right-3 h-3 w-3 border-b-2 border-r-2"
+                    style={{ borderColor: hexToRgba(tint, 0.5) }}
+                  />
+
                   <div
-                    className="flex h-12 w-12 shrink-0 animate-skill-float items-center justify-center rounded-xl border motion-reduce:animate-none"
+                    className="relative flex h-14 w-14 shrink-0 animate-skill-float items-center justify-center rounded-xl border motion-reduce:animate-none"
                     style={{
                       borderColor: hexToRgba(tint, 0.35),
-                      background: hexToRgba(tint, 0.08),
+                      background: hexToRgba(tint, 0.1),
+                      boxShadow: `0 0 24px -6px ${hexToRgba(tint, 0.45)}`,
                       animationDelay: `${idx * 350}ms`,
                     }}
                   >
-                    <Icon className="h-6 w-6" style={{ color: tint }} />
+                    <Icon className="h-7 w-7" style={{ color: tint }} />
                   </div>
-                  <div>
+                  <div className="relative">
                     <h3 className="font-display text-base font-semibold text-foreground">
                       {item.shortName}
                     </h3>
-                    <p className="text-xs uppercase tracking-wide text-muted">{item.tagline}</p>
+                    <p className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                      {item.tagline}
+                    </p>
                   </div>
                 </div>
               </SkillReveal>
@@ -132,23 +167,49 @@ export default function Skills({ variant = "full" }: SkillsProps) {
 
         {isPreview && <ViewMoreButton href={skills.viewMoreHref} label="View All Skills" />}
 
-        {/* Full category breakdown — only on the dedicated /skills page. */}
+        {/* Full category breakdown — only on the dedicated /skills page.
+            CSS columns (not grid) on purpose: categories range from 2
+            skills to 11, and a strict 2-column *grid* sizes each ROW to its
+            tallest item, leaving a big awkward gap under every short
+            category that shares a row with a tall one. Columns instead let
+            each column flow independently and self-balance, like a proper
+            masonry layout — break-inside-avoid on each panel keeps a
+            category from being split across the column break. */}
         {!isPreview && (
-          <div className="mt-16 flex flex-col gap-6 text-left sm:mt-20">
+          <div className="mt-16 columns-1 gap-6 text-left sm:mt-20 lg:columns-2">
             {skills.categories.map((category, catIdx) => {
-              const { icon: CategoryIcon } = getSkillIcon(category.icon);
+              const { icon: CategoryIcon, color: categoryColor } = getSkillIcon(category.icon);
+              const categoryTint = categoryColor ?? GOLD;
               return (
-                <SkillReveal key={category.name} delayMs={Math.min(catIdx, 5) * 70}>
-                  <div className="rounded-3xl border border-border-subtle bg-surface/40 p-6 sm:p-8">
+                <SkillReveal
+                  key={category.name}
+                  delayMs={Math.min(catIdx, 5) * 70}
+                  className="mb-6 break-inside-avoid"
+                >
+                  <div
+                    className="skill-category rounded-3xl border border-border-subtle bg-surface/40 p-6 sm:p-8"
+                    style={{ "--tint": categoryTint } as TintStyle}
+                  >
                     <div className="flex items-center gap-3">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gold/30 bg-gold/10 text-gold">
-                        <CategoryIcon className="h-5 w-5" />
+                      <div
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border"
+                        style={{
+                          borderColor: hexToRgba(categoryTint, 0.35),
+                          background: hexToRgba(categoryTint, 0.12),
+                        }}
+                      >
+                        <CategoryIcon className="h-5 w-5" style={{ color: categoryTint }} />
                       </div>
-                      <h3 className="font-display text-lg font-semibold text-foreground sm:text-xl">
-                        {category.name}
-                      </h3>
-                      <span className="ml-auto shrink-0 text-xs text-muted">
-                        {category.skills.length} skills
+                      <div>
+                        <span className="block font-mono text-[10px] uppercase tracking-[0.25em] text-muted">
+                          Category {String(catIdx + 1).padStart(2, "0")}
+                        </span>
+                        <h3 className="font-display text-lg font-semibold text-foreground sm:text-xl">
+                          {category.name}
+                        </h3>
+                      </div>
+                      <span className="ml-auto shrink-0 rounded-full border border-border-subtle px-2.5 py-1 font-mono text-[10px] text-muted">
+                        {category.skills.length}
                       </span>
                     </div>
 
@@ -159,7 +220,7 @@ export default function Skills({ variant = "full" }: SkillsProps) {
                         return (
                           <div
                             key={skillItem.name}
-                            className="skill-chip flex items-center gap-2 rounded-xl border border-border-subtle bg-surface px-3.5 py-2.5"
+                            className="skill-chip flex items-center gap-2 rounded-full border border-border-subtle bg-surface px-3.5 py-2.5"
                             style={{ "--tint": tint } as TintStyle}
                           >
                             <Icon className="h-4 w-4 shrink-0" style={{ color: tint }} />

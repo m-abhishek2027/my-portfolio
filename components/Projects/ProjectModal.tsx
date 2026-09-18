@@ -63,8 +63,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         {/* min-h-0 is load-bearing: without it a flex item's implicit
             min-height defaults to its content size, which would ignore the
-            parent's height cap and grow instead of scrolling. */}
-        <div className="min-h-0 flex-1 overflow-y-auto lg:h-full">
+            parent's height cap and grow instead of scrolling. The
+            [&::-webkit-scrollbar] + scrollbar-width pair hides the
+            scrollbar itself (Chrome/Safari + Firefox) without disabling
+            scrolling — the mouse wheel/touch/keyboard still work. */}
+        <div className="min-h-0 flex-1 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden lg:h-full">
           <ProjectDetails project={project} />
         </div>
       </div>
