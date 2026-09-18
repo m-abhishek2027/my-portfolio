@@ -75,8 +75,9 @@ export default function Skills({ variant = "full" }: SkillsProps) {
   return (
     <section
       id="skills"
-      // See About.tsx for why the top border is preview-only.
-      className={`relative overflow-hidden py-20 lg:py-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
+      // See About.tsx for why the top border is preview-only, and why the
+      // top padding is smaller than the bottom.
+      className={`relative overflow-hidden pt-10 pb-20 lg:pt-14 lg:pb-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
     >
       {/* Ambient background glow — purely decorative, sits behind
           everything (the content wrapper below is `relative` so it still

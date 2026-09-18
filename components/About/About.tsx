@@ -51,8 +51,12 @@ export default function About({ variant = "full" }: AboutProps) {
       // The top border only makes sense between stacked sections on the
       // Home page (isPreview) — on the dedicated page this is the first
       // thing under the navbar, so a border there just reads as a stray
-      // line right under the pill.
-      className={`py-20 lg:py-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
+      // line right under the pill. Top padding is deliberately smaller than
+      // the bottom — the navbar is just a small floating icon now (not a
+      // full-width bar), so this section (whether it's a preview block on
+      // Home or the whole dedicated page) only needs a little clearance up
+      // top, not the same generous gap it keeps before whatever follows it.
+      className={`pt-10 pb-20 lg:pt-14 lg:pb-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
     >
       {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
           <section>'s own padding) so it renders exactly as wide as the

@@ -28,8 +28,9 @@ export default function Projects({ variant = "full" }: ProjectsProps) {
   return (
     <section
       id="projects"
-      // See About.tsx for why the top border is preview-only.
-      className={`py-20 lg:py-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
+      // See About.tsx for why the top border is preview-only, and why the
+      // top padding is smaller than the bottom.
+      className={`pt-10 pb-20 lg:pt-14 lg:pb-28 ${isPreview ? "border-t border-border-subtle" : ""}`}
     >
       {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
           <section>'s own padding) so it renders exactly as wide as the
