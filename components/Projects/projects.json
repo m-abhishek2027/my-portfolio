@@ -1,17 +1,100 @@
 {
   "eyebrow": "My Work",
   "title": "Featured Projects",
+  "subtitle": "A closer look at the enterprise platforms I've built and shipped in production, from AEM authoring experiences to cloud-scale asset pipelines.",
   "viewMoreHref": "/projects",
   "items": [
     {
-      "id": "sample-project",
-      "title": "Add your project title",
-      "description": "One or two sentences describing what this project does and the problem it solves.",
-      "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
-      "image": "",
-      "liveUrl": "",
-      "githubUrl": "",
-      "featured": true
+      "id": "oreilly",
+      "title": "O'Reilly",
+      "role": "AEM Developer & Google Cloud Manager",
+      "duration": "Aug 2026 — Present",
+      "current": true,
+      "summary": "Building scalable digital-asset and content workflows for a global learning platform, bridging AEM authoring with Google Cloud Storage at scale.",
+      "description": "O'Reilly is a digital learning and publishing platform that provides a wide range of technical books, online courses, videos, learning resources, and digital content for technology professionals. The project involves developing and managing digital experiences using Adobe Experience Manager (AEM) along with Google Cloud Platform (GCP) for scalable content and digital asset management. The work includes managing AEM content and assets, integrating cloud-based storage solutions, supporting bulk asset processing and migration workflows, and implementing efficient content and asset management capabilities. The project also focuses on leveraging Google Cloud Storage (GCS) and serverless cloud services to handle large volumes of digital assets, improve scalability, and streamline content processing workflows between AEM and cloud environments.",
+      "tags": ["Adobe AEM", "Google Cloud Platform", "Google Cloud Storage", "React", "OSGi", "Sling Servlets", "JavaScript", "SEO"],
+      "responsibilities": [
+        "Working on AEM development and content management for building and maintaining reusable components, templates, dialogs, and authoring features.",
+        "Developing and customizing AEM components, Sling Models, OSGi services, and Sling Servlets based on project requirements.",
+        "Working with AEM Assets/DAM for digital asset management, metadata handling, asset organization, and content workflows.",
+        "Working with Google Cloud Platform (GCP) for cloud-based storage and management of digital assets.",
+        "Developed AEM Hybrid Components using React to integrate modern frontend experiences with AEM authoring.",
+        "Working with Google Cloud Storage (GCS) for uploading, storing, and managing large volumes of digital assets.",
+        "Implemented a serverless approach for duplicate asset detection using cloud-based functionality and object hashing, reducing the need for external backend processing.",
+        "Working on bulk asset upload and import/export workflows to support large-scale content and asset migration.",
+        "Exploring and implementing metadata management and asset search capabilities across AEM and cloud storage.",
+        "Working on integration between AEM and Google Cloud services to support scalable asset management and content processing workflows.",
+        "Developing frontend functionality using HTML5, CSS3, JavaScript, and modern frontend technologies as required by the project.",
+        "Involved in analyzing technical requirements, designing solutions, development, debugging, and performance optimization.",
+        "Collaborating with team members and stakeholders to understand requirements and deliver scalable AEM and cloud-based solutions.",
+        "Worked on dynamic SEO and metadata requirements for AEM pages to support optimized page rendering and search engine visibility.",
+        "Working with Maven and Git for project build, source code management, and deployment activities."
+      ],
+      "images": [
+        { "url": "", "alt": "O'Reilly platform — platform overview", "label": "Platform Overview" },
+        { "url": "", "alt": "O'Reilly platform — asset manager", "label": "Asset Manager" },
+        { "url": "", "alt": "O'Reilly platform — content authoring", "label": "Content Authoring" },
+        { "url": "", "alt": "O'Reilly platform — cloud integration", "label": "Cloud Integration" }
+      ]
+    },
+    {
+      "id": "lyca-mobile",
+      "title": "Lyca Mobile",
+      "role": "AEM Developer",
+      "duration": "Feb 2025 — Jul 2026",
+      "current": false,
+      "summary": "Migrated and rebuilt web content for a global telecom brand — modern AEM components with a React + Tailwind front end across multiple countries.",
+      "description": "Lyca Mobile is a global telecommunications company providing mobile communication services across multiple countries. The project involved migrating and developing web content and digital assets on Adobe Experience Manager (AEM), with both front-end and back-end development using AEM, Java, HTL, HTML5, CSS3, JavaScript, React, and related technologies.",
+      "tags": ["Adobe AEM", "React", "Tailwind CSS", "HTL", "QueryBuilder", "SCSS", "Java", "SEO"],
+      "responsibilities": [
+        "Developed and customized AEM Components and Templates using Touch UI to support different web pages and business requirements.",
+        "Worked on the migration of existing website content and digital assets to AEM, ensuring proper content structure and authoring capabilities.",
+        "Developed and customized AEM dialogs to provide flexible authoring options for content authors.",
+        "Worked on custom OSGi services, Sling Servlets, and AEM backend logic for implementing business requirements.",
+        "Developed AEM Hybrid Components using React to integrate modern frontend experiences with AEM authoring.",
+        "Implemented custom search functionality using AEM QueryBuilder and SQL2 queries.",
+        "Worked with AEM DAM for asset migration, organization, metadata management, and content usage.",
+        "Developed and maintained client libraries using JavaScript, SCSS, and CSS for component-level frontend functionality.",
+        "Implemented responsive UI components using HTML5, CSS3, JavaScript, React, and Tailwind CSS.",
+        "Worked on dynamic SEO and metadata requirements for AEM pages to support optimized page rendering and search engine visibility.",
+        "Optimized frontend performance by removing unnecessary client libraries and dependencies and improving asset loading.",
+        "Used Maven for project builds and deployment of AEM packages.",
+        "Worked with Git for source code management and collaborative development.",
+        "Involved in debugging and resolving AEM component, content, frontend, and backend-related issues.",
+        "Collaborated with QA teams for component testing, defect resolution, and validation.",
+        "Participated in requirement analysis, development, code optimization, and deployment activities."
+      ],
+      "images": [
+        { "url": "", "alt": "Lyca Mobile — homepage", "label": "Homepage" },
+        { "url": "", "alt": "Lyca Mobile — component library", "label": "Component Library" },
+        { "url": "", "alt": "Lyca Mobile — mobile experience", "label": "Mobile Experience" },
+        { "url": "", "alt": "Lyca Mobile — search results", "label": "Search Results" }
+      ]
+    },
+    {
+      "id": "dover-corporation",
+      "title": "Dover Corporation",
+      "role": "Software Engineer (AEM)",
+      "duration": "Jan 2022 — Dec 2024",
+      "current": false,
+      "summary": "Custom AEM components and backend services powering product content for a diversified global manufacturer.",
+      "description": "Dover Corporation is a diversified global manufacturer and solutions provider delivering innovative equipment, software solutions, digital technologies, consumable supplies, and aftermarket services across multiple industries. The project involved developing and maintaining AEM-based web applications and digital experiences.",
+      "tags": ["Adobe AEM", "Java", "HTL", "OSGi", "Sling Servlets", "JSON", "JavaScript"],
+      "responsibilities": [
+        "Involved in developing custom AEM Components and Templates.",
+        "Worked on retrieving product data through JSON responses.",
+        "Developed components using HTL (HTML Template Language).",
+        "Provided testing support during UAT and production deployments.",
+        "Worked on custom OSGi Services, Sling Servlets, and Scheduler Jobs.",
+        "Wrote Java classes with OSGi annotations to define services and access JCR nodes programmatically.",
+        "Developed and designed front-end components using HTML, JavaScript, and CSS."
+      ],
+      "images": [
+        { "url": "", "alt": "Dover Corporation — product catalog", "label": "Product Catalog" },
+        { "url": "", "alt": "Dover Corporation — component dialog", "label": "Component Dialog" },
+        { "url": "", "alt": "Dover Corporation — content authoring", "label": "Content Authoring" },
+        { "url": "", "alt": "Dover Corporation — admin view", "label": "Admin View" }
+      ]
     }
   ]
 }
