@@ -28,14 +28,20 @@ interface ProjectCardProps {
   onOpen: () => void;
 }
 
+/** Tags shown on the card itself before folding the rest into a "+N" chip —
+ *  the full list always still shows in the details modal (see ProjectDetails). */
+const CARD_TAG_LIMIT = 3;
+
 export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
   const cover = project.images[0];
+  const visibleTags = project.tags.slice(0, CARD_TAG_LIMIT);
+  const hiddenTagCount = project.tags.length - visibleTags.length;
 
   return (
     <button
       type="button"
       onClick={onOpen}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-border-subtle bg-surface text-left transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_20px_45px_-20px_rgba(212,175,55,0.35)]"
+      className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-border-subtle bg-surface text-left transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_20px_45px_-20px_rgba(212,175,55,0.35)]"
     >
       {/* Layered "photo stack" preview — two plain offset/rotated cards
           behind the real cover image hint that a full gallery lives behind
@@ -95,14 +101,24 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
         <p className="line-clamp-2 text-sm text-muted">{project.summary}</p>
 
         <div className="flex flex-wrap gap-2 pt-1">
-          {project.tags.slice(0, 4).map((tag) => (
+          {visibleTags.map((tag) => (
             <span key={tag} className="rounded-full border border-border-subtle px-3 py-1 text-xs text-foreground/80">
               {tag}
             </span>
           ))}
+          {hiddenTagCount > 0 && (
+            <span className="rounded-full border border-border-subtle px-3 py-1 text-xs text-muted">
+              +{hiddenTagCount}
+            </span>
+          )}
         </div>
 
-        <span className="mt-2 inline-flex items-center gap-2 text-sm font-semibold text-gold">
+        {/* mt-auto pins this to the card's bottom edge regardless of how
+            much summary/tag content precedes it, so the CTA lines up across
+            a row even though summaries and tag counts vary in length — the
+            card itself is already forced to equal height via h-full above
+            (grid rows stretch every card to the tallest one in the row). */}
+        <span className="mt-auto inline-flex items-center gap-2 pt-2 text-sm font-semibold text-gold">
           View Case Study
           <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
         </span>

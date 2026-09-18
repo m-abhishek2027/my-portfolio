@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { CloseIcon } from "@/components/icons";
 import ImageSlider from "./ImageSlider";
+import ProjectDetails from "./ProjectDetails";
 import type { Project } from "./ProjectCard";
 
 interface ProjectModalProps {
@@ -36,9 +37,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       onClick={onClose}
       className="fixed inset-0 z-[90] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm sm:p-6"
     >
+      {/* max-w-7xl matches every other section's content width (Navbar's
+          expanded pill, HeroBanner, Footer) instead of a small narrow
+          dialog. Gallery and details are two distinct panels side by side
+          from lg: up (only the details half scrolls — the gallery stays
+          put) instead of one long column where the text runs straight into
+          the slider; below lg there's no room for two columns, so they
+          stack, gallery on top. */}
       <div
         onClick={(event) => event.stopPropagation()}
-        className="relative flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-[28px] border border-border-subtle bg-gradient-to-br from-surface-elevated/95 to-background/95 shadow-2xl"
+        className="relative flex max-h-[90vh] w-full max-w-7xl flex-col overflow-hidden rounded-[28px] border border-border-subtle bg-gradient-to-br from-surface-elevated/95 to-background/95 shadow-2xl lg:h-[85vh] lg:max-h-[85vh] lg:flex-row"
       >
         <button
           type="button"
@@ -49,48 +57,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <CloseIcon className="h-4 w-4" />
         </button>
 
-        <div className="relative aspect-[16/9] w-full shrink-0 border-b border-border-subtle">
+        <div className="relative aspect-[16/9] w-full shrink-0 border-b border-border-subtle lg:aspect-auto lg:h-full lg:w-1/2 lg:border-b-0 lg:border-r">
           <ImageSlider images={project.images} resetKey={project.id} />
         </div>
 
-        <div className="overflow-y-auto p-6 sm:p-8">
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">{project.duration}</span>
-            {project.current && (
-              <span className="inline-flex items-center gap-1 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2 py-0.5 text-[10px] font-medium text-emerald-400">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/60 motion-reduce:animate-none" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                </span>
-                Currently working
-              </span>
-            )}
-          </div>
-
-          <h3 id="project-modal-title" className="mt-3 font-display text-2xl font-semibold sm:text-3xl">
-            {project.title}
-          </h3>
-          <p className="mt-1 text-sm font-medium text-gold">{project.role}</p>
-
-          <p className="mt-5 text-sm leading-relaxed text-foreground/80">{project.description}</p>
-
-          <div className="mt-6 flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span key={tag} className="rounded-full border border-gold/30 bg-gold/5 px-3 py-1 text-xs font-medium text-gold">
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <h4 className="mt-8 text-xs font-semibold uppercase tracking-[0.3em] text-gold">Key Contributions</h4>
-          <ul className="mt-4 space-y-3">
-            {project.responsibilities.map((item) => (
-              <li key={item} className="flex gap-3 text-sm leading-relaxed text-foreground/80">
-                <span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                {item}
-              </li>
-            ))}
-          </ul>
+        {/* min-h-0 is load-bearing: without it a flex item's implicit
+            min-height defaults to its content size, which would ignore the
+            parent's height cap and grow instead of scrolling. */}
+        <div className="min-h-0 flex-1 overflow-y-auto lg:h-full">
+          <ProjectDetails project={project} />
         </div>
       </div>
     </div>,

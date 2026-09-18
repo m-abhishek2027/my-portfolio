@@ -21,7 +21,7 @@ export default function ProjectGrid({ items }: ProjectGridProps) {
     <>
       <div className="mt-10 grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
         {items.map((project, index) => (
-          <SkillReveal key={project.id} delayMs={index * 90}>
+          <SkillReveal key={project.id} delayMs={index * 90} className="h-full">
             <ProjectCard project={project} onOpen={() => setOpenId(project.id)} />
           </SkillReveal>
         ))}
