@@ -58,7 +58,11 @@ const hero: HeroJson = heroData as HeroJson;
 // stays focused: one identity card, not a repeat of the same icons.
 export default function HeroBanner() {
   return (
-    <section id="home" className="pt-[var(--header-height)] pb-16 lg:pb-20">
+    // No top clearance here on purpose: the navbar now defaults to a small
+    // floating icon (top-right, see Navbar.tsx) rather than a full-width
+    // bar, so the banner can safely run right to the very top of the
+    // viewport underneath it instead of leaving an empty gap.
+    <section id="home" className="pb-16 lg:pb-20">
       {/* Same max-width + horizontal padding as the navbar's own wrapper
           (see Navbar.tsx) so this card's edges line up exactly with the
           floating pill above it — max-w-7xl also matches the Footer, the
