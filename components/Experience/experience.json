@@ -4,11 +4,11 @@
   "viewMoreHref": "/experience",
   "items": [
     {
-      "id": "role-1",
-      "role": "Add your job title",
-      "company": "Company name",
-      "duration": "2023 — Present",
-      "description": "Brief description of your responsibilities and key achievements in this role.",
+      "id": "bhasaka-aem-developer",
+      "role": "AEM Developer",
+      "company": "Bhasaka Technology",
+      "duration": "2022 — Present",
+      "description": "Bhasaka Technologies is a Hyderabad-based Adobe Silver Solution Partner, founded in 2018, that works exclusively on Adobe Experience Cloud (AEM, AEP, Workfront and Adobe Commerce) for 50+ enterprise clients across media, retail and financial services. As an AEM Developer here, I build and maintain enterprise AEM Sites and Assets solutions on both AEM 6.5 and AEM as a Cloud Service. My day-to-day work covers custom components with Sling Models, HTL and OSGi services, along with workflows, Content/Experience Fragments and DAM customisations. I also build integrations through REST and GraphQL APIs and ship code through Maven, Jenkins and Cloud Manager pipelines.",
       "current": true
     }
   ]

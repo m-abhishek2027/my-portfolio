@@ -1,5 +1,5 @@
 import aboutData from "@/components/About/about.json";
-import { siteConfig, absoluteUrl } from "@/lib/seo";
+import { siteConfig, absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
 
 interface EducationEntry {
   institution: string;
@@ -37,6 +37,12 @@ export default function StructuredData() {
         description: siteConfig.description,
         email: `mailto:${siteConfig.email}`,
         sameAs: siteConfig.socialUrls,
+        knowsAbout: siteConfig.knowsAbout,
+        hasOccupation: {
+          "@type": "Occupation",
+          name: siteConfig.jobTitle,
+          skills: siteConfig.roles.join(", "),
+        },
         address: {
           "@type": "PostalAddress",
           addressLocality: siteConfig.location.split(",")[0]?.trim(),
@@ -78,10 +84,27 @@ export default function StructuredData() {
     ],
   };
 
+  return <JsonLdScript data={jsonLd} />;
+}
+
+/**
+ * Per-page breadcrumb JSON-LD (Home › <title>) — rendered by each sub
+ * page's page.tsx, alongside the site-wide graph above.
+ */
+export function BreadcrumbStructuredData({ title, path }: { title: string; path: string }) {
+  return (
+    <JsonLdScript
+      data={{ "@context": "https://schema.org", ...breadcrumbJsonLd(title, path) }}
+    />
+  );
+}
+
+function JsonLdScript({ data }: { data: object }) {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      // Escape "<" so no string value can ever close the <script> tag early.
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }}
     />
   );
 }

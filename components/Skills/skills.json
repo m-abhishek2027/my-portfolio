@@ -33,7 +33,6 @@
         { "name": "Metadata Schema Editor", "icon": "schema" },
         { "name": "Asset Microservices (Asset Compute)", "icon": "microservices" },
         { "name": "Smart Tags", "icon": "tag" },
-        { "name": "Asset Renditions", "icon": "layers" },
         { "name": "Bulk Asset Migration", "icon": "migrate" },
         { "name": "Digital Asset Governance", "icon": "governance" },
         { "name": "Assets HTTP API", "icon": "api" }
@@ -48,8 +47,7 @@
         { "name": "Multi Site Manager (MSM)", "icon": "sites" },
         { "name": "Experience Fragments", "icon": "puzzle" },
         { "name": "Content Fragments", "icon": "stack" },
-        { "name": "Editable Templates", "icon": "template" },
-        { "name": "Touch UI", "icon": "touch" }
+        { "name": "Editable Templates", "icon": "template" }
       ]
     },
     {
@@ -65,7 +63,6 @@
         { "name": "Workflows", "icon": "workflow" },
         { "name": "Event Listeners", "icon": "bell" },
         { "name": "Scheduler Jobs", "icon": "clock" },
-        { "name": "Resource Resolver", "icon": "waypoints" },
         { "name": "Replication APIs", "icon": "refresh" }
       ]
     },
@@ -75,9 +72,7 @@
       "skills": [
         { "name": "Java", "icon": "java" },
         { "name": "Spring Boot", "icon": "springboot" },
-        { "name": "Spring MVC", "icon": "spring" },
         { "name": "JDBC", "icon": "database" },
-        { "name": "Servlets", "icon": "server" },
         { "name": "RESTful APIs", "icon": "api" }
       ]
     },
@@ -95,21 +90,9 @@
       ]
     },
     {
-      "name": "Repository & Frameworks",
-      "icon": "git-branch",
-      "skills": [
-        { "name": "Apache Sling", "icon": "apache" },
-        { "name": "Jackrabbit", "icon": "apache" },
-        { "name": "JCR 2.0", "icon": "database" },
-        { "name": "Apache Felix", "icon": "apache" },
-        { "name": "OSGi Framework", "icon": "blocks" }
-      ]
-    },
-    {
       "name": "Databases",
       "icon": "database",
       "skills": [
-        { "name": "SQL", "icon": "database" },
         { "name": "PL/SQL", "icon": "database" },
         { "name": "MySQL", "icon": "mysql" }
       ]
@@ -135,7 +118,6 @@
       "name": "Tools",
       "icon": "terminal",
       "skills": [
-        { "name": "CRXDE Lite", "icon": "adobe" },
         { "name": "Eclipse", "icon": "eclipse" },
         { "name": "IntelliJ IDEA", "icon": "intellij" },
         { "name": "Jira", "icon": "jira" }

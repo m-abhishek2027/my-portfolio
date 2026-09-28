@@ -71,6 +71,9 @@ function hexToRgba(hex: string, alpha: number): string {
 
 export default function Skills({ variant = "full" }: SkillsProps) {
   const isPreview = variant === "preview";
+  // The section title is the page's <h1> on its own route; on Home it's an
+  // <h2>, since the hero's name is already that page's single <h1>.
+  const Heading = isPreview ? "h2" : "h1";
 
   return (
     <section
@@ -89,14 +92,14 @@ export default function Skills({ variant = "full" }: SkillsProps) {
 
       {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
           <section>'s own padding) so it renders exactly as wide as the
-          navbar's own wrapper (see Navbar.tsx) at every viewport width. */}
+          resume icon's own wrapper (see ResumeButton.tsx) at every viewport width. */}
       <div className="relative mx-auto max-w-7xl px-4 text-center lg:px-10">
         <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gold">
           {skills.eyebrow}
         </span>
-        <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+        <Heading className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
           {skills.title}
-        </h2>
+        </Heading>
         {!isPreview && (
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted sm:text-base">
             {skills.subtitle}
@@ -141,14 +144,10 @@ export default function Skills({ variant = "full" }: SkillsProps) {
                     style={{ borderColor: hexToRgba(tint, 0.5) }}
                   />
 
+                  {/* Static icon tile — no border, glow or float animation. */}
                   <div
-                    className="relative flex h-14 w-14 shrink-0 animate-skill-float items-center justify-center rounded-xl border motion-reduce:animate-none"
-                    style={{
-                      borderColor: hexToRgba(tint, 0.35),
-                      background: hexToRgba(tint, 0.1),
-                      boxShadow: `0 0 24px -6px ${hexToRgba(tint, 0.45)}`,
-                      animationDelay: `${idx * 350}ms`,
-                    }}
+                    className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-xl"
+                    style={{ background: hexToRgba(tint, 0.1) }}
                   >
                     <Icon className="h-7 w-7" style={{ color: tint }} />
                   </div>
@@ -193,11 +192,8 @@ export default function Skills({ variant = "full" }: SkillsProps) {
                   >
                     <div className="flex items-center gap-3">
                       <div
-                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border"
-                        style={{
-                          borderColor: hexToRgba(categoryTint, 0.35),
-                          background: hexToRgba(categoryTint, 0.12),
-                        }}
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
+                        style={{ background: hexToRgba(categoryTint, 0.12) }}
                       >
                         <CategoryIcon className="h-5 w-5" style={{ color: categoryTint }} />
                       </div>

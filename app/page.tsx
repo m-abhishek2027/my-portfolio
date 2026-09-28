@@ -19,10 +19,10 @@ export default function Home() {
   return (
     <main className="flex-1">
       <HeroBanner />
-      {/* <About variant="preview" /> */}
       <Skills variant="preview" />
       <Projects variant="preview" />
       <Experience variant="preview" />
+      <About variant="preview" />
       <Contact />
     </main>
   );

@@ -31,8 +31,8 @@
         "Working with Maven and Git for project build, source code management, and deployment activities."
       ],
       "images": [
-        { "url": "", "alt": "O'Reilly platform — platform overview", "label": "Platform Overview" },
-        { "url": "", "alt": "O'Reilly platform — asset manager", "label": "Asset Manager" },
+        { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1790629713/Screenshot_2026-09-29_023815_kcc72n.png", "alt": "O'Reilly platform — platform overview", "label": "Platform Overview" },
+        { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1790630024/Screenshot_2026-09-29_024325_ytyorm.png", "alt": "O'Reilly platform — asset manager", "label": "Asset Manager" },
         { "url": "", "alt": "O'Reilly platform — content authoring", "label": "Content Authoring" },
         { "url": "", "alt": "O'Reilly platform — cloud integration", "label": "Cloud Integration" }
       ]
@@ -65,8 +65,8 @@
         "Participated in requirement analysis, development, code optimization, and deployment activities."
       ],
       "images": [
-        { "url": "", "alt": "Lyca Mobile — homepage", "label": "Homepage" },
-        { "url": "", "alt": "Lyca Mobile — component library", "label": "Component Library" },
+        { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1790629801/Screenshot_2026-09-29_023938_gtzpol.png", "alt": "Lyca Mobile — homepage", "label": "Homepage" },
+        { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1790629909/Screenshot_2026-09-29_024133_xcxwgd.png", "alt": "Lyca Mobile — component library", "label": "Component Library" },
         { "url": "", "alt": "Lyca Mobile — mobile experience", "label": "Mobile Experience" },
         { "url": "", "alt": "Lyca Mobile — search results", "label": "Search Results" }
       ]
@@ -90,10 +90,38 @@
         "Developed and designed front-end components using HTML, JavaScript, and CSS."
       ],
       "images": [
-        { "url": "", "alt": "Dover Corporation — product catalog", "label": "Product Catalog" },
+        { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1790630834/Screenshot_2026-09-29_025643_lzkzjo.png", "alt": "Dover Corporation — product catalog", "label": "Product Catalog" },
         { "url": "", "alt": "Dover Corporation — component dialog", "label": "Component Dialog" },
         { "url": "", "alt": "Dover Corporation — content authoring", "label": "Content Authoring" },
         { "url": "", "alt": "Dover Corporation — admin view", "label": "Admin View" }
+      ]
+    },
+    {
+      "id": "hostelhub",
+      "title": "HostelHub",
+      "role": "Full-Stack Developer (Personal Project)",
+      "duration": "Personal Project",
+      "current": true,
+      "summary": "A live full-stack platform (hostelhub.online) to discover, compare and book verified hostels and PGs across India, with a complete control panel for hostel owners.",
+      "description": "HostelHub (hostelhub.online) is a full-stack platform that helps students and working professionals discover, compare and book verified hostels and PGs across India. It also gives hostel owners a digital control room to run their property in real time — rooms and room types, bookings, rent and payments, staff, inventory, services and reports. The frontend is built with React 19, Vite, Redux Toolkit, React Router 7 and Tailwind CSS 4, and the backend is a separate Spring Boot 3 REST API with a MySQL database. Online payments are handled through Razorpay.",
+      "tags": ["React 19", "Redux Toolkit", "Tailwind CSS", "Spring Boot", "MySQL", "Razorpay", "Vite", "REST APIs"],
+      "responsibilities": [
+        "Designed and built the complete product end to end — frontend, backend, database and deployment — and run it live at hostelhub.online.",
+        "Built hostel discovery for users with search, filters by state and city, detailed hostel pages, wishlist and booking flow.",
+        "Integrated Razorpay for online payments, with checkout handling and a payment history view for users and owners.",
+        "Developed an owner/admin panel covering room and room-type management, bookings, users, staff, inventory, services, issues and payments.",
+        "Added dashboards and reports with charts (Recharts) so owners can track occupancy, revenue and activity at a glance.",
+        "Built user dashboards for bookings, payments, services, rewards, profile and settings.",
+        "Implemented forms and validation with Formik and Yup, including ID-proof upload with gallery and camera capture.",
+        "Managed global state with Redux Toolkit and API communication with Axios against the Spring Boot backend.",
+        "Built the backend REST APIs with Spring Boot 3 and MySQL for hostels, rooms, bookings, users and payments.",
+        "Added shared pagination, debounced search, an onboarding guide for owners, and an auto-generated sitemap for SEO."
+      ],
+      "images": [
+        { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1790630224/Screenshot_2026-09-29_024646_vrk9yc.png", "alt": "HostelHub — home page", "label": "Home Page" },
+        { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1790630296/Screenshot_2026-09-29_024800_grihmu.png", "alt": "HostelHub — hostel details", "label": "Hostel Details" },
+        { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1790630362/Screenshot_2026-09-29_024905_fdnndj.png", "alt": "HostelHub — owner dashboard", "label": "Owner Dashboard" },
+        { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1790630414/Screenshot_2026-09-29_024959_bzhzoh.png", "alt": "HostelHub — booking & payment", "label": "Booking & Payment" }
       ]
     }
   ]

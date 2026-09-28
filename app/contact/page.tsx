@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Contact from "@/components/Contact/Contact";
 import contactData from "@/components/Contact/contact.json";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 import { buildMetadata } from "@/lib/seo";
 
 const contact: { description: string } = contactData;
@@ -15,6 +16,7 @@ export default function ContactPage() {
   return (
     // See app/about/page.tsx for why there's no header clearance here.
     <main className="flex-1">
+      <BreadcrumbStructuredData title="Contact" path="/contact" />
       <Contact standalone />
     </main>
   );

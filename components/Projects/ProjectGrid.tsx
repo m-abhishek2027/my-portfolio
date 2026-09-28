@@ -11,7 +11,7 @@ interface ProjectGridProps {
 
 /**
  * Owns "which project is open" so Projects.tsx itself can stay a server
- * component (same split as Footer/BackToTopButton and Navbar/MobileMenu).
+ * component (same split as Footer/BackToTopButton).
  */
 export default function ProjectGrid({ items }: ProjectGridProps) {
   const [openId, setOpenId] = useState<string | null>(null);

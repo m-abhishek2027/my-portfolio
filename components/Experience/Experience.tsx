@@ -29,6 +29,9 @@ const PREVIEW_LIMIT = 2;
 
 export default function Experience({ variant = "full" }: ExperienceProps) {
   const isPreview = variant === "preview";
+  // The section title is the page's <h1> on its own route; on Home it's an
+  // <h2>, since the hero's name is already that page's single <h1>.
+  const Heading = isPreview ? "h2" : "h1";
   const items = isPreview
     ? experienceJson.items.slice(0, PREVIEW_LIMIT)
     : experienceJson.items;
@@ -42,14 +45,14 @@ export default function Experience({ variant = "full" }: ExperienceProps) {
     >
       {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
           <section>'s own padding) so it renders exactly as wide as the
-          navbar's own wrapper (see Navbar.tsx) at every viewport width. */}
+          resume icon's own wrapper (see ResumeButton.tsx) at every viewport width. */}
       <div className="mx-auto max-w-7xl px-4 text-center lg:px-10">
         <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gold">
           {experienceJson.eyebrow}
         </span>
-        <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+        <Heading className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
           {experienceJson.title}
-        </h2>
+        </Heading>
 
         <div className="mx-auto mt-10 flex max-w-3xl flex-col gap-6 text-left">
           {items.map((item) => (

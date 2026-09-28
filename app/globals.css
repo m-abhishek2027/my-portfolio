@@ -13,16 +13,6 @@
   --gold-dark: #9c7a24;
 
   --border-subtle: rgba(212, 175, 55, 0.16);
-
-  /* Fixed navbar height — shared by the Navbar, scroll offset and hero
-     spacing. Matches the floating pill wrapper's real height exactly:
-     0.75rem top pad + 4rem (h-16) pill + 0.75rem bottom pad = 5.5rem. */
-  --nav-height: 5.5rem;
-  /* Alias for --nav-height — kept as its own variable (rather than used
-     directly) so anything that needs to clear the fixed header can say so
-     without caring whether the header is just the pill or, later, the pill
-     plus something above it again. */
-  --header-height: var(--nav-height);
 }
 
 @theme inline {
@@ -45,49 +35,16 @@
 
 html {
   scroll-behavior: smooth;
-  /* Keeps the fixed navbar from covering a section's top when jumping to an anchor. */
-  scroll-padding-top: var(--header-height);
+  /* No fixed header any more (only the small resume icon in the corner), so
+     an anchor jump like #projects lands with the section's top flush at the
+     top of the screen — each section already has its own top padding. */
+  scroll-padding-top: 0;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-}
-
-/* Staggered entrance for each mobile-menu link — ported from the floating
-   pill-nav reference (eduadobe-ui), recolored to this site's own theme. */
-@keyframes menu-item-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-menu-item-in {
-  animation: menu-item-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/* Gentle ambient float for the featured skill logos (HeroBanner-adjacent
-   "AEM / Spring Boot / React" cards) — a small continuous life/motion cue.
-   Disabled for reduced-motion via the .motion-reduce:animate-none utility
-   applied alongside this class, same as everywhere else in this project. */
-@keyframes skill-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.animate-skill-float {
-  animation: skill-float 4.5s ease-in-out infinite;
 }
 
 /* Skill logo card/chip hover treatment (Skills.tsx). Each skill's real
@@ -181,4 +138,59 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+}
+
+/* ---------- Hero (HeroBanner.tsx) ---------- */
+
+/* Faint gold grid, faded out toward the edges with a radial mask. */
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(212, 175, 55, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 175, 55, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+}
+
+/* Outlined (hollow) gold word behind the hero photo. */
+.hero-outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(212, 175, 55, 0.35);
+}
+
+/* Background-removed hero photo: only the bottom fades out, since the
+   cutout is cropped flat there. */
+.hero-photo-fade {
+  mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 75%, transparent 100%);
+}
+
+/* Blinking caret for the hero roles typewriter (RoleTypewriter.tsx). */
+@keyframes caret-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+.animate-caret {
+  animation: caret-blink 1s step-end infinite;
+}
+
+/* Staggered fade-up entrance for the hero blocks on page load. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }

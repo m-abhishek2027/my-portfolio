@@ -5,16 +5,22 @@
   "location": "Hyderabad, India",
   "companies": [
     {
-      "logo": { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1789329512/bhasaka-logo_pkrtz4.png", "alt": "Bhasaka Technology logo" },
+      "logo": {
+        "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1789329512/bhasaka-logo_pkrtz4.png",
+        "alt": "Bhasaka Technology logo"
+      },
       "name": "Bhasaka Technology",
       "current": true,
-      "duration": "2023 — Present",
-      "experience": "3+ years",
+      "duration": "2022 — Present",
+      "experience": "4+ years",
       "location": "Madhura Nagar, Hyderabad, Telangana",
       "url": "https://bhasaka.com"
     },
-     {
-      "logo": { "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1789331142/awadhesh-university-bg-remove_fe76ou.png", "alt": "APS University logo" },
+    {
+      "logo": {
+        "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1789331142/awadhesh-university-bg-remove_fe76ou.png",
+        "alt": "APS University logo"
+      },
       "name": "Rajeev Gandhi Pradyogiki University",
       "current": false,
       "duration": "2019 — 2021",
@@ -25,33 +31,59 @@
   ],
   "roles": [
     "AEM Developer",
-    "Full Stack Developer",
-    "React.js",
+    "AEM Solution Design & Architect",
+    "AEMaaCS",
     "Java",
     "Spring Boot",
-    "Adobe Experience Manager (AEM)",
     "Google Cloud"
   ],
   "description": "Building scalable digital experiences with Adobe Experience Manager, Java and modern web technologies.",
-  "primaryButton": { "label": "View My Work", "href": "#projects" },
-  "secondaryButton": { "label": "Let's Connect", "href": "#contact" },
+  "primaryButton": {
+    "label": "View My Work",
+    "href": "#projects"
+  },
+  "secondaryButton": {
+    "label": "Let's Connect",
+    "href": "#contact"
+  },
   "socials": [
-    { "platform": "LinkedIn", "url": "https://linkedin.com/in/abhishek2027", "icon": "linkedin" },
-    { "platform": "GitHub", "url": "https://github.com/m-abhishek2027", "icon": "github" },
-    { "platform": "Email", "url": "mailto:m.abhishek2027@gmail.com", "icon": "mail" }
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/abhishek2027",
+      "icon": "linkedin"
+    },
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/m-abhishek2027",
+      "icon": "github"
+    },
+    {
+      "platform": "Email",
+      "url": "mailto:m.abhishek2027@gmail.com",
+      "icon": "mail"
+    }
   ],
   "stats": [
-    { "value": "3+", "label": "Years Experience" },
-    { "value": "10+", "label": "Projects Delivered" },
-    { "value": "5+", "label": "Happy Clients" },
-    { "value": "100%", "label": "Commitment" }
+    {
+      "value": "4+",
+      "label": "Years Experience"
+    },
+    {
+      "value": "10+",
+      "label": "Projects Delivered"
+    },
+    {
+      "value": "5+",
+      "label": "Happy Clients"
+    },
+    {
+      "value": "100%",
+      "label": "Commitment"
+    }
   ],
-  "bannerImage": {
-    "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1789329484/banner-bg-removed_jombts.png",
-    "alt": "Profile banner"
-  },
   "photo": {
-    "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1789326471/IMG_20260914_003606_v79zue.jpg",
+    "url": "https://res.cloudinary.com/dpfoe1vi2/image/upload/v1790625843/bg-remove-abhi_pcuxlr.png",
     "alt": "Abhishek Mishra"
-  }
+  },
+  "photoBackdropText": "AEM"
 }

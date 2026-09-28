@@ -37,6 +37,9 @@ interface ContactProps {
 }
 
 export default function Contact({ standalone = false }: ContactProps) {
+  // The section title is the page's <h1> on its own route; on Home it's an
+  // <h2>, since the hero's name is already that page's single <h1>.
+  const Heading = standalone ? "h1" : "h2";
   return (
     <section
       id="contact"
@@ -45,14 +48,14 @@ export default function Contact({ standalone = false }: ContactProps) {
     >
       {/* max-w-7xl + px-4 lg:px-10 combined on THIS div (not split with the
           <section>'s own padding) so it renders exactly as wide as the
-          navbar's own wrapper (see Navbar.tsx) at every viewport width. */}
+          resume icon's own wrapper (see ResumeButton.tsx) at every viewport width. */}
       <div className="mx-auto max-w-7xl px-4 text-center lg:px-10">
         <span className="text-sm font-semibold uppercase tracking-[0.3em] text-gold">
           {contact.eyebrow}
         </span>
-        <h2 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
+        <Heading className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
           {contact.title}
-        </h2>
+        </Heading>
         <p className="mx-auto mt-6 max-w-xl text-muted">{contact.description}</p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">

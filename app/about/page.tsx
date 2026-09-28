@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import About from "@/components/About/About";
 import aboutData from "@/components/About/about.json";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 import { buildMetadata } from "@/lib/seo";
 
 const about: { summary: string } = aboutData;
@@ -19,6 +20,7 @@ export default function AboutPage() {
     // the viewport instead of reserving space for a header that usually
     // isn't there. The section's own py-20/lg:py-28 is the only spacing.
     <main className="flex-1">
+      <BreadcrumbStructuredData title="About" path="/about" />
       <About variant="full" />
     </main>
   );

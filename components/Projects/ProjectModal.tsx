@@ -37,7 +37,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       onClick={onClose}
       className="fixed inset-0 z-[90] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm sm:p-6"
     >
-      {/* max-w-7xl matches every other section's content width (Navbar's
+      {/* max-w-7xl matches every other section's content width (ResumeButton's
           expanded pill, HeroBanner, Footer) instead of a small narrow
           dialog. Gallery and details are two distinct panels side by side
           from lg: up (only the details half scrolls — the gallery stays

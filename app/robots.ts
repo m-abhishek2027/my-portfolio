@@ -7,7 +7,8 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
+    // No `host:` line — it's a non-standard (Yandex-only) directive that
+    // Google ignores, and it expects a bare domain, not a full URL.
     sitemap: `${siteConfig.url}/sitemap.xml`,
-    host: siteConfig.url,
   };
 }
